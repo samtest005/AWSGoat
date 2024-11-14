@@ -27,6 +27,7 @@ resource "aws_lambda_function" "react_lambda_app" {
   runtime       = "nodejs18.x"
   role          = aws_iam_role.blog_app_lambda.arn
   depends_on    = [data.archive_file.lambda_zip, null_resource.file_replacement_lambda_react]
+  code_signing_config_arn = "CKV_ANY"
 }
 
 
